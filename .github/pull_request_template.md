@@ -8,7 +8,7 @@ Closes #{ISSUE NUMBER HERE}
 
 ## Special Instructions (optional)
 
-### Pull Request Checklist
+### Pre-Pull Request Checklist
 
 - [ ] Code is neat, readable, and works
 - [ ] Comments are appropriate
