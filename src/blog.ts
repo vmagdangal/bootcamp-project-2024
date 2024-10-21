@@ -7,7 +7,7 @@ type Blog = {
     slug: string;
 }
 
-const blogs: Blog[] = [{
+var blogs: Blog[] = [{
     title: "First Blog Post",
     date: "10-21-2024",
     description: "This is my very first blog post.",
@@ -16,7 +16,7 @@ const blogs: Blog[] = [{
     slug: "first-blog"
 }]
 
-const blogContainer = document.getElementById('blog-container');
+var blogContainer = document.getElementById('blog-container');
 
 blogs.forEach(blog => {
     const blogDiv = document.createElement('div');
@@ -27,9 +27,12 @@ blogs.forEach(blog => {
     blogTitle.innerHTML = blog.title;
     blogDiv.appendChild(blogTitle);
 
+    const blogLink = document.createElement('a')
+    blogLink.setAttribute('href', 'blog/' + blog.slug + '.html')
     const blogImage = document.createElement('img');
     blogImage.setAttribute('src', blog.image);
-    blogDiv.appendChild(blogImage);
+    blogLink.appendChild(blogImage);
+    blogDiv.appendChild(blogLink);
 
     const blogDesc = document.createElement('p');
     blogDesc.setAttribute('class', 'blog-description');

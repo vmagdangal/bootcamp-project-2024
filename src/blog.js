@@ -14,9 +14,12 @@ blogs.forEach(function (blog) {
     blogTitle.setAttribute('class', 'blog-title');
     blogTitle.innerHTML = blog.title;
     blogDiv.appendChild(blogTitle);
+    var blogLink = document.createElement('a');
+    blogLink.setAttribute('href', 'blog/' + blog.slug + '.html');
     var blogImage = document.createElement('img');
     blogImage.setAttribute('src', blog.image);
-    blogDiv.appendChild(blogImage);
+    blogLink.appendChild(blogImage);
+    blogDiv.appendChild(blogLink);
     var blogDesc = document.createElement('p');
     blogDesc.setAttribute('class', 'blog-description');
     blogDesc.innerHTML = blog.description;

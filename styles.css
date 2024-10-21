@@ -102,7 +102,7 @@ main {
   height: 400px;
 }
 
-.project img:hover {
+.project img:hover, .blog-div img:hover {
   opacity: 75%;
 }
 
