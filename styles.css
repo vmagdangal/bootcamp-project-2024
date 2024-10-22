@@ -167,3 +167,13 @@ main {
   max-height: 100px;
   margin-bottom: 20px;
 }
+
+.blog-block {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.blog-block img {
+  align-self: center;
+}
