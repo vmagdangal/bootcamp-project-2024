@@ -1,0 +1,50 @@
+.portfolioBox {
+    padding: 0 20px 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #360f2a;
+}
+
+.portfolioFlexbox {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 60%;
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: 100px;
+  }
+  
+  .project {
+    padding: 15px;
+    border: 10px solid #68324a;
+    border-radius: 10px;
+    background-color: #f2eeff;
+  }
+  
+  .project img {
+    border: 5px solid #68324a;
+    border-radius: 5px;
+    width: 400px;
+    height: 400px;
+  }
+  
+  .project img:hover {
+    opacity: 75%;
+  }
+  
+  .projectDetails a {
+    text-align: center;
+    border: 2px solid #360f2a;
+    background-color: #360f2a;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  
+  .projectDetails a:hover {
+    background-color: white;
+    color: #360f2a;
+  }
