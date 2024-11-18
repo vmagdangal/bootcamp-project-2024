@@ -1,0 +1,37 @@
+.blogDiv {
+    padding: 15px;
+    border: 10px solid #68324a;
+    border-radius: 10px;
+    background-color: #f2eeff;
+  }
+  
+.blogDiv img {
+    border: 5px solid #68324a;
+    border-radius: 5px;
+    width: 400px;
+    height: 400px;
+  }
+
+.blogBlock {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+  
+.blogImg {
+    align-self: center;
+}
+
+.blogImg:hover {
+    opacity: 75%;
+    transform: scale(1.05);
+}
+
+.blogLink {
+    text-decoration: none;
+    color: #68324a;
+}
+
+.blogLink:hover {
+    text-decoration: underline;
+}
