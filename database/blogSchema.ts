@@ -2,6 +2,7 @@ import mongoose, { Schema } from "mongoose";
 
 // typescript type (can also be an interface)
 type Blog = {
+    _id: string;
     title: string;
     slug: string; 
     date: Date;
