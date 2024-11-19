@@ -15,8 +15,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Milestone 2",
-  description: "Hack4Impact Milestone 2",
+  title: "Personal Website",
+  description: "Hack4Impact Bootcamp Project",
 };
 
 export default function RootLayout({

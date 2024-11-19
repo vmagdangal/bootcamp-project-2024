@@ -1,4 +1,5 @@
 var blogs = [{
+    _id: 'placeholderid1',
     title: "First Blog Post",
     date: "10-21-2024",
     description: "This is my very first blog post.",
@@ -7,6 +8,7 @@ var blogs = [{
     slug: "first-blog"
 },
 {
+    _id: 'placeholderid2',
     title: "Second Blog Post",
     date: "10-21-2024",
     description: "This is my second ever blog post.",
@@ -15,6 +17,7 @@ var blogs = [{
     slug: "second-blog"
 },
 {
+    _id: 'placeholderid3',
     title: "A Third Blog Post",
     date: "10-21-2024",
     description: "This is my third ever blog post.",

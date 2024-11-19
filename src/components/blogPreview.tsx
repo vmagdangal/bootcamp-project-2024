@@ -18,7 +18,8 @@ export default function BlogPreview({title, date, description, image, imageAlt, 
     <div className={style.blogBlock}>
         <div className={style.blogDiv}>
           <a className={style.blogLink} href={'blogs/' + slug}><h1 className={style.blogTitle}>{title}</h1></a>
-          <p>{description + ' | ' + date}</p>
+          <p>{description}</p>
+          <p>{date.toString()}</p>
           <a className={style.blogLink} href={'blogs/' + slug}>
             <Image className={style.blogImg} src={image} alt={imageAlt} width={500} height={500}/>
           </a>
