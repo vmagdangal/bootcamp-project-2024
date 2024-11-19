@@ -1,43 +1,38 @@
 import styles from "./portfolio.module.css"
+import Project from "../../../database/projectSchema"
+import connectDB from "../../../database/db"
 
-export default function Home() {
+export default async function Home() {
+
+    async function getProjects(){
+        await connectDB() // function from db.ts before
+    
+        try {
+                // query for all blogs and sort by date
+            const projects = await Project.find().sort({ date: -1 }).orFail()
+                // send a response as the blogs as the message
+            return projects
+        } catch (err) {
+            return []
+        }
+    }
+
     return(
     <div className={styles.portfolioBox}>
         <h1 className="page-title">Portfolio</h1>
         <p><strong>- Take a look at some of my work! -</strong></p>
+
         <div className={styles.portfolioFlexbox}>
-            <div className={styles.project}>
-                <a href="index.html"><img src="/projectThumb.jpg"/></a>
-                <div className={styles.projectDetails}>
-                    <p className="project-name"><strong>Personal Website</strong></p>
-                    <p className="project-description">A personal website featuring a portfolio and resume</p>
-                    <a className="project-details" href="index.html">Learn More</a>
-                </div>
-            </div>
-            <div className={styles.project}>
-                <a href="https://www.figma.com/design/w8pRbeRdOxWCoOxvgXAeTj/Prototyping?node-id=6-58&t=PBfcwNXF4mbrpabV-1" target="_blank"><img src="/asiplusThumb.jpg"/></a>
-                <div className={styles.projectDetails}>
-                    <p className="project-name"><strong>ASI+ HiFi Prototype (CSC484 Group Final)</strong></p>
-                    <p className="project-description">A Figma prototype to redesign Cal Poly's ASI app.</p>
-                    <a className="project-details" href="https://www.figma.com/design/w8pRbeRdOxWCoOxvgXAeTj/Prototyping?node-id=6-58&t=PBfcwNXF4mbrpabV-1" target="_blank">Learn More</a>
-                </div>
-            </div>
-            <div className={styles.project}>
-                <a href="https://www.figma.com/design/jUJKHNTxq0zYL2suYVEAQM/Recipea-Wireframes?node-id=0-1&t=6Y40SeMKZIHWHimR-1" target="_blank"><img src="/recipeaThumb.jpg"/></a>
-                <div className={styles.projectDetails}>
-                    <p className="project-name"><strong>Recipea (Figma Prototype for Cal Poly UXFest)</strong></p>
-                    <p className="project-description">A Figma prototype AI cooking app for a designathon.</p>
-                    <a className="project-details" href="https://www.figma.com/design/jUJKHNTxq0zYL2suYVEAQM/Recipea-Wireframes?node-id=0-1&t=6Y40SeMKZIHWHimR-1" target="_blank">Learn More</a>
-                </div>
-            </div>
-            <div className={styles.project}>
-                <a href="https://github.com/vinampud/OrganizZen" target="_blank"><img src="/organizzenThumb.jpg"/></a>
-                <div className={styles.projectDetails}>
-                    <p className="project-name"><strong>OrganizZen (CSC307 Group Final)</strong></p>
-                    <p className="project-description">A sleek and aesthetic to-do list web app!</p>
-                    <a className="project-details" href="https://github.com/vinampud/OrganizZen" target="_blank">Learn More</a>
-                </div>
-            </div>
+            {(await getProjects()).map(project =>
+                <div className={styles.project} key={project._id}>
+                    <a href={project.link}><img src={project.image}/></a>
+                    <div className={styles.projectDetails}>
+                        <p className="project-name"><strong>{project.name}</strong></p>
+                        <p className="project-description">{project.description}</p>
+                        <a className="project-details" href={project.link}>Learn More</a>
+                    </div>
+                </div> 
+            )}
         </div>
     </div>
     )
