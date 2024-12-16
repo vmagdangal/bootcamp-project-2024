@@ -22,7 +22,6 @@ export async function GET(req: NextRequest, { params }: IParams) {
 
 export async function POST(req: NextRequest, { params }: IParams) {
 	await connectDB();
-	console.log('Connected to MongoDB');
 	const body = await req.json();
 	const { slug } = await params;
 	if(!body.user || !body.comment){
