@@ -1,6 +1,5 @@
 import styles from "./page.module.css"
 import BlogPreview from "@/components/blogPreview"
-import blogData from "../blogData"
 import connectDB from "../../../database/db"
 import Blog from "../../../database/blogSchema"
 
@@ -21,7 +20,7 @@ export default async function Home() {
 
     return(
         <div>
-            <h1 className={styles.pageTitle}>Blog</h1>
+            <h1 className={styles.pageTitle}>Blogs</h1>
             <div id={styles.blogContainer}>
                 {(await getBlogs()).map(blog =>
                     <BlogPreview 

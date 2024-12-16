@@ -24,3 +24,8 @@
     flex-direction: column;
     text-align: center;
 }
+
+.blogDate {
+  text-align: center;
+  font-style: italic;
+}
