@@ -24,3 +24,18 @@
     flex-direction: column;
     text-align: center;
 }
+
+.blogDate {
+  text-align: center;
+  font-style: italic;
+}
+
+.commentBox {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 15px;
+  background-color: #68324a;
+  border-radius: 5px;
+  padding: 10px;
+}
