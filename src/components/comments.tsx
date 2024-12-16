@@ -22,7 +22,7 @@ function parseCommentTime(date: Date){
 	const newdate = new Date(date);
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const period = newdate.getUTCHours() < 12 ? 'AM' : 'PM';
-    let result = `${
+    const result = `${
         months[newdate.getMonth()] + " " +
         newdate.getDate() + ", " +
         newdate.getFullYear() + " | " +

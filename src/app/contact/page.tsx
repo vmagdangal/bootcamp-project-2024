@@ -1,8 +1,8 @@
 'use client';
 import contactstyles from "./page.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import emailjs from "@emailjs/browser";
-import Head from "next/head";
+import Script from "next/script";
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -11,13 +11,6 @@ export default function Home() {
     message: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  // Initialize EmailJS
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual EmailJS public key
-    }
-  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -49,23 +42,24 @@ export default function Home() {
   };
 
   return (
+  <>
+  <Script
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    strategy="beforeInteractive"
+  />
+  <Script
+    id="emailjsinit"
+    type="text/javascript"
+    dangerouslySetInnerHTML={{
+      __html: `
+        (function() {
+          emailjs.init('-8Vh8UV1aTCbIx5A4');
+        })();
+      `,
+    }}
+    strategy="beforeInteractive"
+  />
     <div className={contactstyles.contactBox}>
-      <Head>
-        <script
-          type="text/javascript"
-          src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-        ></script>
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(){
-                emailjs.init('-8Vh8UV1aTCbIx5A4');
-              })();
-            `,
-          }}
-        ></script>
-      </Head>
 
       <h1 className="page-title">Contact</h1>
       <p>Is there anything you could use my help with? Feel free to contact me!</p>
@@ -111,5 +105,6 @@ export default function Home() {
       </form>
       {isSubmitted && <p>Your email has been sent! I will get back to you as soon as I can.</p>}
     </div>
+  </>
   );
 }
