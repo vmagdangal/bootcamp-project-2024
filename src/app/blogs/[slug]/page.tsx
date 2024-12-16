@@ -9,10 +9,6 @@ type IComment = {
     date: Date;
 }
 
-type Props = {
-    params: { slug: string }
-}
-
 async function getBlog(slug: string) {
     try {
         const res = await fetch(`http://localhost:3000/api/Blogs/${slug}`, {
@@ -26,7 +22,7 @@ async function getBlog(slug: string) {
     }
 }
 
-export default async function Blog({ params }: Props) {
+export default async function Blog({ params }: { params: Promise<{ slug: string }> }) {
     const awaitedParams = await params;
 	const slug = awaitedParams.slug;
     const blog = await getBlog(slug); 
