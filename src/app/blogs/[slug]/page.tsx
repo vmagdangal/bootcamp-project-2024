@@ -11,7 +11,7 @@ type IComment = {
 
 async function getBlog(slug: string) {
     try {
-        const res = await fetch(`http://localhost:3000/api/Blogs/${slug}`, {
+        const res = await fetch(`http://bootcamp-project-2024.vercel.app/api/Blogs/${slug}`, {
         cache: 'no-store',
         });        
         if (!res.ok) throw new Error('Failed to fetch blog');
